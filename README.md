@@ -8,15 +8,22 @@ To use this pipeline, the following software packages are required:
 	•	MATLAB (for motion processing steps)
 	•	FSL (required for ICA-based denoising)
 
+Before running the UNet segmentation pipeline, please ensure the following Python packages are installed:
+	•	tensorflow (tested with TensorFlow 2.x)
+	•	keras
+	•	h5py
+	•	SimpleITK
+	•	scipy
+	•	Pillow
+	•	scikit-image
+
 Please ensure that all software is correctly installed and properly added to your system path before running the scripts.
 
 
 
 
-
-
-
-Before using the pipeline, you need to download the following files:
+######################################################################################################################################################
+Before using the pipeline, you also need to download the following files:
 
 1. Template Download: https://www.dropbox.com/scl/fo/2z81khp7jhaocjzzuuspc/AEjrPOTUD91SlmYRdTx9hrs?rlkey=rver8dg04auxbqaduhb7rvi5q&dl=0
 
@@ -26,6 +33,9 @@ Place the Template folder in the same directory as the pipeline script, and plac
 
 
 
+
+
+######################################################################################################################################################
 Below is the use instruction:
 
 1. All anatomical images must be named as *_Anat.nii.gz, and all functional images must be named as *_Func.nii.gz.
