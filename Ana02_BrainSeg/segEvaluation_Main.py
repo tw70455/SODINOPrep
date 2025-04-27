@@ -46,7 +46,7 @@ kerasparas.modelname = '3D_Unet'
 """------------------------------------"""
 
 #kerasparas.modelpath = '/Users/liming/Dropbox/Brain/Rat/Preprocessing/Ana02_BrainSeg/Evaluation/Rat_Brain-3D_Unet-72-0.9723-0.9716.hdf5' ## Path to model
-kerasparas.modelpath = os.path.join(base_dir, 'Rat_Brain-3D_Unet-72-0.9723-0.9716.hdf5') # Trained model file path
+kerasparas.modelpath = os.path.join(base_dir, 'SORDINO_UNet_model.hdf5') # Trained model file path
 
 # eva.online_seg_evaluation(imgpath,labelpath,savepath,preparas,normparas,organids,kerasparas)
 eva.online_seg_prediction(imgpath,savepath,preparas,normparas,organids,kerasparas)
