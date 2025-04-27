@@ -1,5 +1,20 @@
 # SODINOPrep
-Preprocessing steps for rodent SORDINO fMRI
+
+This toolbox is designed specifically for SORDINO resting-state fMRI preprocessing.
+
+To use this pipeline, the following software packages are required:
+	•	AFNI (for basic preprocessing and motion correction)
+	•	ANTs (for anatomical-to-template registration)
+	•	MATLAB (for motion processing steps)
+	•	FSL (required for ICA-based denoising)
+
+Please ensure that all software is correctly installed and properly added to your system path before running the scripts.
+
+
+
+
+
+
 
 Before using the pipeline, you need to download the following files:
 
