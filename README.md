@@ -29,9 +29,10 @@ Before using the pipeline, you also need to download the following files:
 1. Template Download: https://www.dropbox.com/scl/fo/2z81khp7jhaocjzzuuspc/AEjrPOTUD91SlmYRdTx9hrs?rlkey=rver8dg04auxbqaduhb7rvi5q&dl=0
 
 	•	After downloading, make sure all template files are placed inside a folder named Template.
+
 	•	The Template folder must be located in the same directory as the pipeline scripts.
 
-2. UNet SORDINO Download: https://www.dropbox.com/scl/fi/7uyyk2hmfh3enz784u0gz/SORDINO_UNet_model.hdf5?rlkey=38rnbk0nr0ngpr62cc64sn533&dl=0
+3. UNet SORDINO Download: https://www.dropbox.com/scl/fi/7uyyk2hmfh3enz784u0gz/SORDINO_UNet_model.hdf5?rlkey=38rnbk0nr0ngpr62cc64sn533&dl=0
 
 	•	Place the SORDINO_UNet_model.hdf5 file inside the Ana02_BrainSeg folder.
 
