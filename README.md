@@ -98,16 +98,12 @@ If no ***_Anat_032_add.nii.gz** file is available, Ana04 will proceed using only
 
 12. If you want to perform ICA denoising:
 	•	Run Ana09 to perform ICA decomposition.
+	•	Run Ana10 to manually select noise components.
+You will need to manually specify the noise components in the command line option. (e.g., **-f "1,2,3,4,5,6,7,8,9,10"**)
 
 
-
-
-
+##############################################################################################################################################################################################################
 
 Summary: Initially, brain extraction is performed using a 3D UNet-based segmentation model to accurately isolate brain tissue. Anatomical images are subsequently normalized to a standardized template space using Advanced Normalization Tools (ANTs). Functional images undergo spatial smoothing with a Gaussian kernel of 0.6 mm full-width at half-maximum (FWHM) to improve signal-to-noise ratio. Motion artifacts are mitigated through a 36-parameter regression model, followed by temporal band-pass filtering (0.01–0.15 Hz) to retain physiologically relevant frequency components. Scrubbing is applied to censor volumes exhibiting framewise displacement (FD) greater than 0.04 mm, ensuring the exclusion of high-motion frames. Finally, independent component analysis (ICA)-based denoising is optionally performed to further remove residual noise sources. This comprehensive preprocessing framework aims to produce high-quality, standardized fMRI datasets suitable for subsequent functional connectivity and network analyses.
 
 
-
-
-	•	Run Ana10 to manually select noise components.
-You will need to manually specify the noise components in the command line option. (e.g., **-f "1,2,3,4,5,6,7,8,9,10"**)
