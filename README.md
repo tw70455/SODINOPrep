@@ -35,7 +35,7 @@ Please ensure that all software is correctly installed and properly added to you
 
 ##############################################################################################################################################################################################################
 
-Before using the pipeline, you also need to download the following files:
+Before using the pipeline, you also need to download the following files (these file sizes exceed GitHub’s upload limit):
 
 1. Template Download: https://www.dropbox.com/scl/fo/2z81khp7jhaocjzzuuspc/AEjrPOTUD91SlmYRdTx9hrs?rlkey=rver8dg04auxbqaduhb7rvi5q&dl=0
 
