@@ -23,27 +23,35 @@ Here, FILE_PATH should be the folder containing your images, and NUMS should lis
 
 Please put your image file path and each subject name (file name before _Func.nii.gz).
 
-3. Run Ana01 to process the anatomical images (code: tcsh Ana01_shift_imgt.sh). After running Ana01, copy all the _Anat.nii.gz files into the IMG folder under Ana02_BrainSeg.
+3. Run Ana01 to process the anatomical images (command: tcsh Ana01_shift_imgt.sh). After running Ana01, copy all the _Anat.nii.gz files into the IMG folder under Ana02_BrainSeg.
 tcsh Ana03_ResampleUNetMask.sh
 
-4. Run Ana02 for brain segmentation using UNet (code: python segEvaluation_Main.py)
+4. Run Ana02 for brain segmentation using UNet (command: python segEvaluation_Main.py)
 
 5. The segmented masks will be saved into the IMGMask folder. After segmentation, copy the output images back to the same folder as your original functional images (e.g., /Volumes/ProcessDisk/fMRIData/).
 
-6. Run Ana03, Ana04, and Ana05 sequentially:
-tcsh Ana03_ResampleUNetMask.sh
+6. Run Ana03 (command: tcsh Ana03_ResampleUNetMask.sh)
+IMPORTANT: After running Ana03, please carefully check the brain segmentation results for each subject.
+Review both the anatomical image (*_Anat.nii.gz) and its corresponding mask (*_Anat_mask.nii.gz).
+If any brain regions are missing or not fully covered by the mask, you must manually correct them.
+To speed up manual correction, you can use the downsampled anatomical image (*_Anat_032.nii.gz).
+Please save any manually added mask as a new file named *_Anat_032_add.nii.gz for next step Ana04.
+If a *_Anat_032_add.nii.gz file is present, Ana04 will automatically incorporate it to improve the brain mask based on *_Anat_mask.nii.gz.
+If no *_Anat_032_add.nii.gz file is available, Ana04 will proceed using only *_Anat_mask.nii.gz for brain masking.
+
+8. Run Ana04 and Ana05 sequentially:
 tcsh Ana04_shift2Temp_ANTs.sh
 tcsh Ana05_fMRIProcess.sh
 
-7. Run Ana06 in MATLAB for further preprocessing.
+9. Run Ana06 in MATLAB for further preprocessing.
 
-8. Run Ana07 and Ana08 for motion correction and scrubbing:
+10. Run Ana07 and Ana08 for motion correction and scrubbing:
 tcsh Ana07_RS_36motionrs.sh
 tcsh Ana08_runScrubbing.sh
 
-9. Ana09 and Ana10 are optional steps for manual ICA denoising. If you choose not to perform ICA denoising, you can directly use the following output file for further analysis: *_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean_scrub.nii.gz
+11. Ana09 and Ana10 are optional steps for manual ICA denoising. If you choose not to perform ICA denoising, you can directly use the following output file for further analysis: *_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean_scrub.nii.gz
 
-10. If you want to perform ICA denoising:
+12. If you want to perform ICA denoising:
 	•	Run Ana09 to perform ICA decomposition.
 	•	Run Ana10 to manually select noise components.
 You will need to manually specify the noise components in the command line option. (e.g., -f "1,2,3,4,5,6,7,8,9,10")
