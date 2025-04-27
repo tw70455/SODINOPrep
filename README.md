@@ -3,19 +3,30 @@
 This toolbox is designed specifically for SORDINO resting-state fMRI preprocessing.
 
 To use this pipeline, the following software packages are required:
-	•	AFNI (for basic preprocessing and motion correction)
-	•	ANTs (for anatomical-to-template registration)
-	•	MATLAB (for motion processing steps)
-	•	FSL (required for ICA-based denoising)
+
+ •	AFNI (for basic preprocessing and motion correction)
+
+ •	ANTs (for anatomical-to-template registration)
+
+ •	MATLAB (for motion processing steps)
+
+ •	FSL (required for ICA-based denoising)
 
 Before running the UNet segmentation pipeline, please ensure the following Python packages are installed:
-	•	tensorflow (tested with TensorFlow 2.x)
-	•	keras
-	•	h5py
-	•	SimpleITK
-	•	scipy
-	•	Pillow
-	•	scikit-image
+
+ •	tensorflow (tested with TensorFlow 2.x)
+
+ •	keras
+
+ •	h5py
+
+ •	SimpleITK
+
+ •	scipy
+
+ •	Pillow
+
+ •	scikit-image
 
 Please ensure that all software is correctly installed and properly added to your system path before running the scripts.
 
