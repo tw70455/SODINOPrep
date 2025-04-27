@@ -22,24 +22,28 @@ set NUMS="Subj01 Subj02 Subj03"
 Here, FILE_PATH should be the folder containing your images, and NUMS should list the subject IDs (the prefix before _Func.nii.gz).
 
 Please put your image file path and each subject name (file name before _Func.nii.gz).
-4. Run the Ana01, copy all the *_Anat.nii.gz to the IMG folder in Ana02_BrainSeg
+
+3. Run Ana01 to process the anatomical images (code: tcsh Ana01_shift_imgt.sh). After running Ana01, copy all the _Anat.nii.gz files into the IMG folder under Ana02_BrainSeg.
 tcsh Ana03_ResampleUNetMask.sh
 
-6. Run the python code of 'segEvaluation_Main.py' in Ana02_Brainseg for the brain segmentation, get the result from the IMGMask folder in Ana02_BrainSeg and put all the output image with your image files in the same folder (for example /Volumes/ProcessDisk/fMRIData/).
-python segEvaluation_Main.py
+4. Run Ana02 for brain segmentation using UNet (code: python segEvaluation_Main.py)
 
-7. Run the Ana03, Ana04, and Ana05
+5. The segmented masks will be saved into the IMGMask folder. After segmentation, copy the output images back to the same folder as your original functional images (e.g., /Volumes/ProcessDisk/fMRIData/).
+
+6. Run Ana03, Ana04, and Ana05 sequentially:
 tcsh Ana03_ResampleUNetMask.sh
 tcsh Ana04_shift2Temp_ANTs.sh
 tcsh Ana05_fMRIProcess.sh
 
-9. Run the Ana06 in MATLAB
+7. Run Ana06 in MATLAB for further preprocessing.
 
-10. Run the Ana07 and 08
+8. Run Ana07 and Ana08 for motion correction and scrubbing:
 tcsh Ana07_RS_36motionrs.sh
 tcsh Ana08_runScrubbing.sh
 
-12. For Ana09 and Ana10, it's for manually ICA denoise, if you don't need it, you can directly use the output files (*_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean_scrub.nii.gz) for further analysis.
+9. Ana09 and Ana10 are optional steps for manual ICA denoising. If you choose not to perform ICA denoising, you can directly use the following output file for further analysis: *_Func_ANTsWarped_masked_unify5_volreg_blur_despike_detrend_blur_rmmotion36_bandpass015_admean_scrub.nii.gz
 
-    
-14. Run the Ana09 for the ICA denoise, and Ana10 for the denoise component selection. You need to manually put the noise component in '-f "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"'. 
+10. If you want to perform ICA denoising:
+	•	Run Ana09 to perform ICA decomposition.
+	•	Run Ana10 to manually select noise components.
+You will need to manually specify the noise components in the command line option. (e.g., -f "1,2,3,4,5,6,7,8,9,10")
